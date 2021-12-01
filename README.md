@@ -11,9 +11,9 @@ Live Version: [Miracle](https://miracle-delta.vercel.app/)
 
 ## Tracker Configuration
 
-Configure the tracker endpoint in the `rudderService.js` to the credentials based on your project and source. Make sure that this endpoint is directed to the right source that can be find in your [Sources](https://feedloop_io.gitlab.io/aixp-docs/integration/sources) page.
+Configure the tracker endpoint in the `rudderService.js` to the credentials based on your project and source. Make sure that this endpoint is directed to the right source that can be found in your [sources](https://feedloop_io.gitlab.io/aixp-docs/integration/sources) page.
 
-All trackers are placed in the `store.js` file. Learn more about tracker installation [here](https://feedloop_io.gitlab.io/aixp-docs/integration/AIXP-SDKs/webapp-sdk/javascript-sdk).
+All trackers are placed in the `store.js` file. Learn more about tracker installation in the [AIXP documentation](https://feedloop_io.gitlab.io/aixp-docs/integration/AIXP-SDKs/webapp-sdk/javascript-sdk).
 
 > This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 > You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
