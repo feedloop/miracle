@@ -296,7 +296,7 @@ const changeState = (state = initialState, { type, ...rest }) => {
           }
         );
         rudderanalytics.reset()
-        const anonymousId = faker.datatype.uuid()
+        const anonymousId = faker.random.uuid()
         rudderanalytics.setAnonymousId(anonymousId)
         return { ...state, currentUser: null };
       }
