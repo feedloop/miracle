@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { BrowserRouter, Route, Switch, useLocation } from "react-router-dom";
 import "./scss/style.scss";
+import rudderanalytics from "./rudderService";
 
 // Import styles
 import "@react-pdf-viewer/core/lib/styles/index.css";
@@ -22,7 +23,7 @@ const Page500 = React.lazy(() => import("./views/pages/page500/Page500"));
 const App = () => {
   const location = useLocation();
   React.useEffect(() => {
-    // aixpTracker.page();
+    rudderanalytics.page();
   }, [location]);
 
   return (

@@ -23,7 +23,7 @@
     "enzyme-adapter-react-16": "^1.15.3",
     "faker": "^5.4.0",
     "moment": "^2.29.0",
-    "node-sass": "^4.14.1",
+    "node-sass": "4.14.1",
     "pdf-viewer-reactjs": "^2.1.2",
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
@@ -39,8 +39,8 @@
     "sweetalert2": "^10.3.5"
   },
   "devDependencies": {
-    "react-scripts": "^3.4.2",
-    "auto-changelog": "2.2.0"
+    "auto-changelog": "2.2.0",
+    "react-scripts": "^3.4.2"
   },
   "scripts": {
     "dev": "react-scripts start",
@@ -69,7 +69,7 @@
     ]
   },
   "engines": {
-    "node": ">=10",
+    "node": "14",
     "npm": ">=6"
   }
 }
