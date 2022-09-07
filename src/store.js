@@ -212,21 +212,23 @@ const changeState = (state = initialState, { type, ...rest }) => {
           qty: copyCart.reduce((a, b) => { return a + b.amount }, 0)
         }
       );
-      rudderanalytics.identify(
-        state.currentUser.email,
-        {
-          email: state.currentUser.email,
-          name: state.currentUser.name,
-          picture: "https://cutt.ly/zvJyFft",
-          location: state.currentUser.location,
-          gender: state.currentUser.gender,
-          emailConsent: state.currentUser.check ? "granted" : "denied",
-          pushConsent: state.currentUser.check ? "granted" : "denied",
-          itemInCart: copyCart.reduce((a, b) => { return a + b.amount }, 0)
-        },
-        {
-        }
-      );
+      if(state.currentUser){
+        rudderanalytics.identify(
+          state.currentUser.email,
+          {
+            email: state.currentUser.email,
+            name: state.currentUser.name,
+            picture: "https://cutt.ly/zvJyFft",
+            location: state.currentUser.location,
+            gender: state.currentUser.gender,
+            emailConsent: state.currentUser.check ? "granted" : "denied",
+            pushConsent: state.currentUser.check ? "granted" : "denied",
+            itemInCart: copyCart.reduce((a, b) => { return a + b.amount }, 0)
+          },
+          {
+          }
+        );
+      }
       return { ...state, cart: copyCart };
     case "removeItemfromCart":
       let cart = [...state.cart];
@@ -248,21 +250,23 @@ const changeState = (state = initialState, { type, ...rest }) => {
           price: rest.item.detail.price
         }
       );
-      rudderanalytics.identify(
-        state.currentUser.email,
-        {
-          email: state.currentUser.email,
-          name: state.currentUser.name,
-          picture: "https://cutt.ly/zvJyFft",
-          location: state.currentUser.location,
-          gender: state.currentUser.gender,
-          emailConsent: state.currentUser.check ? "granted" : "denied",
-          pushConsent: state.currentUser.check ? "granted" : "denied",
-          itemInCart: filteredCart.reduce((a, b) => { return a + b.amount }, 0)
-        },
-        {
-        }
-      );
+      if(state.currentUser){
+        rudderanalytics.identify(
+          state.currentUser.email,
+          {
+            email: state.currentUser.email,
+            name: state.currentUser.name,
+            picture: "https://cutt.ly/zvJyFft",
+            location: state.currentUser.location,
+            gender: state.currentUser.gender,
+            emailConsent: state.currentUser.check ? "granted" : "denied",
+            pushConsent: state.currentUser.check ? "granted" : "denied",
+            itemInCart: filteredCart.reduce((a, b) => { return a + b.amount }, 0)
+          },
+          {
+          }
+        );
+      }
       rudderanalytics.track(
         "cartQty",
         {
@@ -271,6 +275,7 @@ const changeState = (state = initialState, { type, ...rest }) => {
       );
       return { ...state, cart: filteredCart };
     case "emptyCart":
+      if(state.currentUser){
       rudderanalytics.identify(
         state.currentUser.email,
         {
@@ -286,6 +291,7 @@ const changeState = (state = initialState, { type, ...rest }) => {
         {
         }
       );
+      }
       return { ...state, cart: [] };
     case "setCurretUser":
       if (rest.userEmail === "logout") {
